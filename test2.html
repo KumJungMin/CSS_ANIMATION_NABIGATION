@@ -1,0 +1,65 @@
+<!-- 오버한 메뉴 외에 나머지는 흐려지게 하는 효과가 있는 navigation -->
+<head>
+    <style>
+        body{
+            background-color: royalblue;
+            margin: 0;
+            
+        }
+
+        a{
+            color: #222;
+            text-decoration: none;
+        }
+        .gnb{
+            position:absolute; /*수직중앙주기(1)*/
+            top : 50%;          /*수직중앙주기(2) -> 브라우저 크기에 맞춰 항상 중앙*/
+            transform: translateY(-50%);  /*수직중앙주기(3)*/
+            left : 50px;
+        }
+        .gnb a{
+            display: block;  /*새로로 일렬*/
+            font-size: 40px;
+            margin: 15px 0px;  /*상하 좌우*/
+            color : #fff;
+            transition: 0.5s;  /*gnb a에 어떤 이벤트가 발생하면 항상 0.5초 뒤에 일어난다는 사전설정*/
+        }
+
+        /*메인효과들은 코드들이 순서대로 작동-> 그러므로 먼저 전체 투명도가 낮아져야하는 경우-> 코드를 메인효과2보다 먼저 위에 써줘야한다.*/
+        /*메인효과1 : 전체 투명하게*/
+        /*gnb에 hover가 되면 -> a에 어떤 변화를 준다.*/
+        .gnb:hover a{
+            opacity: 0.3;   /*마우스가 올라갔을 때 전체 메뉴의 글자의 투명도가 낮아지게 한다.*/
+        }
+        /*메인효과2 : 특정 a만 밝게*/
+        /*만약 a태그 중 하나에 올라가게 되면 그 a의 투명도는 높아지게 한다.*/
+        /*gnb의 자식인 a중에서 하나에 hover가 되면 주는 효과*/
+        .gnb a:hover{
+            opacity: 1;
+        }
+        /*마우스가 특정a에 올라갔을 때 나타나는 화살표 - 장식용가상클래스*/
+        .gnb a:before{
+            content: '>';
+            margin-right: 10px;
+            opacity: 0;
+        }
+        /*gnb의 자식인a태그에 hover가 되면 -> before의 투명도가 1이 된다*/
+        .gnb a:hover:before{
+            opacity: 1;
+        }
+        
+
+    </style>
+</head>
+
+
+<body>
+    <div class="gnb"> 
+        <a href="">MENU</a>
+        <a href="">SIGNUP</a>
+        <a href="">INTRODUCE</a>
+        <a href="">CALL</a>
+    </div>
+
+
+</body>
